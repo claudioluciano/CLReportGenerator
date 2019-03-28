@@ -22,7 +22,7 @@ namespace CL.ReportGenerator
 
             // carrega o gerador de html para pdf
             var architectureFolder = (IntPtr.Size == 8) ? "64 bit" : "32 bit";
-            var wkHtmlToPdfPath = Path.Combine(assemblyPath, $"wkhtmltox\\v0.12.4\\{architectureFolder}\\libwkhtmltox");
+            var wkHtmlToPdfPath = Path.Combine(assemblyPath, "..\\..\\content", $"wkhtmltox\\v0.12.4\\{architectureFolder}\\libwkhtmltox");
             CustomAssemblyLoadContext context = new CustomAssemblyLoadContext();
             context.LoadUnmanagedLibrary(wkHtmlToPdfPath);
 

@@ -3,6 +3,7 @@ using Dapper;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace CL.ReportGenerator
             _converter = converter;
         }
 
-        public async Task<IActionResult> GenerateReportAsPDF<TModel>(string fileName, string reportPath, string query, object param = null, CommandType type = CommandType.Query, Orientation orientation = Orientation.Portrait)
+        public async Task<IActionResult> GenerateReportAsPDF<TModel>(string fileName, string reportPath, string query, object param = null, CommandType type = CommandType.Query, ReportOrientation reportOrientation = ReportOrientation.Portrait)
         {
             using (IDbConnection conn = _connection.Connection)
             {
@@ -38,7 +39,7 @@ namespace CL.ReportGenerator
 
                 var view = await GetViewAsString(reportPath, data);
 
-                var doc = PdfDocument(view, orientation);
+                var doc = PdfDocument(view, reportOrientation);
 
                 var fileBytes = _converter.Convert(doc);
 
@@ -46,7 +47,7 @@ namespace CL.ReportGenerator
             }
         }
 
-        public async Task<IActionResult> GenerateReportAsEXCEL<TModel>(string fileName, string query, object param = null, CommandType type = CommandType.Query, Orientation orientation = Orientation.Portrait)
+        public async Task<IActionResult> GenerateReportAsEXCEL<TModel>(string fileName, string query, object param = null, CommandType type = CommandType.Query, ReportOrientation reportOrientation = ReportOrientation.Portrait)
         {
             using (IDbConnection conn = _connection.Connection)
             {
@@ -69,14 +70,14 @@ namespace CL.ReportGenerator
             return await _razorEngine.RenderViewToStringAsync(reportPath, model);
         }
 
-        private HtmlToPdfDocument PdfDocument(string content, Orientation orientation = Orientation.Portrait)
+        private HtmlToPdfDocument PdfDocument(string content, ReportOrientation reportOrientation = ReportOrientation.Portrait)
         {
             return new HtmlToPdfDocument()
             {
                 GlobalSettings = new GlobalSettings()
                 {
                     PaperSize = PaperKind.A4,
-                    Orientation = orientation
+                    Orientation = (Orientation)(int)reportOrientation
                 },
                 Objects = {
                         new ObjectSettings()
@@ -96,7 +97,7 @@ namespace CL.ReportGenerator
             foreach (PropertyDescriptor prop in props)
             {
                 builder.Append(prop.DisplayName); // header
-                builder.Append("\t"); 
+                builder.Append("\t");
             }
 
             builder.AppendLine();

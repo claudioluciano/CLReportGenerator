@@ -13,4 +13,10 @@ namespace CL.ReportGenerator
         //     The name of a stored procedure.
         StoredProcedure = 4,
     }
+
+    public enum ReportOrientation
+    {
+        Landscape = 0,
+        Portrait = 1
+    }
 }
