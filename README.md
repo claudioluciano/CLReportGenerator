@@ -1,7 +1,7 @@
 ## CLReportGenerator
 A Simple report generator (PDF, Excel)
 
-[![nuget](https://img.shields.io/badge/nuget-download-blue.svg)](https://www.nuget.org/packages/Realm.Json.Extensions/)
+[![nuget](https://img.shields.io/badge/nuget-download-blue.svg)](https://www.nuget.org/packages/CL.ReportGenerator/)
 
 
 Dapper is the responsible for query the database
