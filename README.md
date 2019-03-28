@@ -1,21 +1,32 @@
-# CLReportGenerator
+## CLReportGenerator
 A Simple report generator (PDF, Excel)
+
 [![nuget](https://img.shields.io/badge/nuget-download-blue.svg)](https://www.nuget.org/packages/Realm.Json.Extensions/)
+
+
+Dapper is the responsible for query the database
+
+**The query must be written in dapper syntax**
+**Like that:** "select * from Thing where Name = **@Name**"
+
+**@Name** is the parameter.
+To pass parameters: 
+```csharp 
+new { Name="Tony Stark" } 
+```
 
 ##### How To Use
 
 ###### Startup.cs
 ```csharp
-   public void ConfigureServices(IServiceCollection services)
-   {
+public void ConfigureServices(IServiceCollection services)
+{
    //cool stuff...
-	   services.AddReportGenerator(Configuration.GetConnectionString("LocalConnection"));
-	   
-	//more cool stuff...
-   }
+   services.AddReportGenerator(Configuration.GetConnectionString("LocalConnection"));
+   //more cool stuff...
+}
 ```
 Then just inject the **IReportGenerator** 
-###### Startup.cs
 ```csharp
 private readonly IReportGenerator _reportGenerator;
 
@@ -104,3 +115,6 @@ Like that
 </body>
 </html>
 ```
+
+
+
