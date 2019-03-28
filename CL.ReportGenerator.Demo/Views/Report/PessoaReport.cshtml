@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CL.ReportGenerator.Demo.Model.Pessoa>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PessoaReport</title>
+</head>
+<body>
+<p>
+   
+    <h1>Teste Report</h1>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+            </tr>
+        }
+
+        @for (int i = 0; i < 10000; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => i)
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+</body>
+</html>
