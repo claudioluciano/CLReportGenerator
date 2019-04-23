@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>CL.ReportGenerator</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <authors>Claudio Luciano</authors>
     <owners>Claudio Luciano</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/claudioluciano/CLReportGenerator/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/claudioluciano/CLReportGenerator</projectUrl>
-    <deion>A Simple report generator (PDF, Excel)</deion>
+    <description>A Simple report generator (PDF, Excel)</description>
     <tags>Report, Excel, PDF</tags>
     <repository type="Git" url="https://github.com/claudioluciano/CLReportGenerator" />
     <dependencies>
@@ -31,13 +31,17 @@
     <file src="bin\release\netstandard2.0\*.dll" target="lib\netstandard2.0\"/>
     <file src="bin\release\netstandard2.0\*.pdb" target="lib\netstandard2.0\"/>
 
-    <file src="wkhtmltox/v0.12.4/32 bit/libwkhtmltox.dll"   target="contentFiles/any/any/wkhtmltox/v0.12.4/32 bit/"/>
+    <!--<file src="wkhtmltox/v0.12.4/32 bit/libwkhtmltox.dll"   target="contentFiles/any/any/wkhtmltox/v0.12.4/32 bit/"/>
     <file src="wkhtmltox/v0.12.4/32 bit/libwkhtmltox.dylib" target="contentFiles/any/any/wkhtmltox/v0.12.4/32 bit/"/>
-    <file src="wkhtmltox/v0.12.4/32 bit/libwkhtmltox.so"    target="contentFiles/any/any/wkhtmltox/v0.12.4/32 bit/"/>
+    <file src="wkhtmltox/v0.12.4/32 bit/libwkhtmltox.so"    target="contentFiles/any/any/wkhtmltox/v0.12.4/32 bit/"/>-->
 
-    <file src="wkhtmltox/v0.12.4/64 bit/libwkhtmltox.dll"   target="contentFiles/any/any/wkhtmltox/v0.12.4/64 bit/"/>
+    <!--<file src="wkhtmltox/v0.12.4/64 bit/libwkhtmltox.dll"   target="contentFiles/any/any/wkhtmltox/v0.12.4/64 bit/"/>
     <file src="wkhtmltox/v0.12.4/64 bit/libwkhtmltox.dylib" target="contentFiles/any/any/wkhtmltox/v0.12.4/64 bit/"/>
-    <file src="wkhtmltox/v0.12.4/64 bit/libwkhtmltox.so"    target="contentFiles/any/any/wkhtmltox/v0.12.4/64 bit/"/>
+    <file src="wkhtmltox/v0.12.4/64 bit/libwkhtmltox.so"    target="contentFiles/any/any/wkhtmltox/v0.12.4/64 bit/"/>-->
+
+    <file src="wkhtmltox/libwkhtmltox.dll"   target="contentFiles/any/any/wkhtmltox/"/>
+    <file src="wkhtmltox/libwkhtmltox.dylib" target="contentFiles/any/any/wkhtmltox/"/>
+    <file src="wkhtmltox/libwkhtmltox.so"    target="contentFiles/any/any/wkhtmltox/"/>
 
   </files>
 
