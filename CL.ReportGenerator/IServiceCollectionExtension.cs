@@ -28,7 +28,7 @@ namespace CL.ReportGenerator
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 // carrega o gerador de html para pdf
                 var architectureFolder = (IntPtr.Size == 8) ? "64 bit" : "32 bit";
-                var wkHtmlToPdfPath = Path.Combine(basePath, "wkhtmltox\\libwkhtmltox");
+                var wkHtmlToPdfPath = Path.Combine(basePath, "wkhtmltox", "libwkhtmltox");
                 CustomAssemblyLoadContext context = new CustomAssemblyLoadContext();
                 context.LoadUnmanagedLibrary(wkHtmlToPdfPath);
             }
